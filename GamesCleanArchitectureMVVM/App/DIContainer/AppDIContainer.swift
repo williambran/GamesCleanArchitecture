@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+
+class AppDIContainer{
+    
+    var appConfiguration: AppConfiguration?
+    
+   /* lazy var  dataTransferService:  = {
+        let config =
+    }()*/
+    
+}

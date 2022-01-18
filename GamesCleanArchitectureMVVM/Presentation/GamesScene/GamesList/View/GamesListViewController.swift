@@ -7,14 +7,25 @@
 
 import UIKit
 
-class ListGamesViewController: UIViewController {
+class GamesListViewController: UIViewController,Storyboarded {
+    
+    @IBOutlet private var searchBarContainer: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .red
+        
+        print("Inicio bien")
         // Do any additional setup after loading the view.
     }
     
+    
+      static func create() -> GamesListViewController  {
+        let view = GamesListViewController.instantiateVC()
+        
+        return view
+        
+    }
 
     /*
     // MARK: - Navigation

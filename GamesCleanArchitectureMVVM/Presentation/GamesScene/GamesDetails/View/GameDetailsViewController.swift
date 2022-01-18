@@ -7,14 +7,28 @@
 
 import UIKit
 
-class GameDetailsViewController: UIViewController {
+class GameDetailsViewController: UIViewController, Storyboarded {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("algo")
+    }
+    
+   static func create() -> GameDetailsViewController{
+        
+      let view = GameDetailsViewController.instantiateVC()
+       
+       return view
+    }
 
     /*
     // MARK: - Navigation

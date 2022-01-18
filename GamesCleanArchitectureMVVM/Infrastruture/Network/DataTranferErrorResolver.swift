@@ -6,3 +6,35 @@
 //
 
 import Foundation
+
+
+
+protocol DataTransferError {
+    func resolver(error: NetworkError)->Error
+}
+
+class DataTransferErrorResolver: DataTransferError{
+    init() {}
+    
+    func resolver(error : NetworkError)-> Error{
+        
+        return error
+    }
+}
+
+
+
+
+public protocol DataTransferErrorLogger {
+    func log(error: Error)
+}
+
+public final class DataTransferErrorLog: DataTransferErrorLogger {
+    init(){}
+    
+    public func log(error: Error){
+        print("------")
+        print("Error: \(error)")
+    }
+    
+}
