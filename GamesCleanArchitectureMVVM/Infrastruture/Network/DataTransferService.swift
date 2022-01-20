@@ -17,14 +17,14 @@ protocol DataTransferServiceProtocol {
 
 public final class DataTransferService {
     
-    
+    var networkServices: NetworkServicesProtocol
     var errorLog: DataTransferErrorLogger
     var networkError: DataTransferError
-    var networkServices: NetworkServicesProtocol
     
-    init(errorLog:DataTransferErrorLogger = DataTransferErrorLog(),
-         networkError: DataTransferError = DataTransferErrorResolver(),
-         networkServices: NetworkServicesProtocol
+    init(networkServices: NetworkServicesProtocol,
+        errorLog:DataTransferErrorLogger = DataTransferErrorLog(),
+         networkError: DataTransferError = DataTransferErrorResolver()
+         
     ){
         self.errorLog = errorLog
         self.networkError = networkError

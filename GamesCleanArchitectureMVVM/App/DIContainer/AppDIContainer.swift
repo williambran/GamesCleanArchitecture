@@ -6,14 +6,38 @@
 //
 
 import Foundation
+import UIKit
 
 
-class AppDIContainer{
+final class AppDIContainer{
     
-    var appConfiguration: AppConfiguration?
+    lazy var appConfiguration = AppConfiguration()
     
-   /* lazy var  dataTransferService:  = {
-        let config =
-    }()*/
+    
+    
+    lazy var dataTransferService: DataTransferServiceProtocol = {
+        
+        let networkConfig =  NetworkConfig(baseURL: URL(string: appConfiguration.baseURL)!)
+        
+        let networkService = NetworkServices(networkConfig: networkConfig)
+        
+        let dataTransferService = DataTransferService(networkServices: networkService)
+        
+        return dataTransferService
+        
+    }()
+    
+    
+    //MARK: InyectionDependenci ConfigRequest-DB
+    
+    func makeGameAppSceneDIContainer() -> GamesAppSceneDIContainer {
+        
+        
+        let gameAppSceneDIContainer = GamesAppSceneDIContainer.Dependencies(apiRequest: dataTransferService)
+        
+        
+        return GamesAppSceneDIContainer(dependencies: gameAppSceneDIContainer)
+        
+    }
     
 }

@@ -9,19 +9,24 @@ import UIKit
 
 
 
-class AppFlowCoordinator{
-    var navigationController: UINavigationController?
-    var appDIContainer: AppDIContainer?
+ class AppFlowCoordinator{
+    var navigationController: UINavigationController
+    var appDIContainer: AppDIContainer
     
     
-    init(navigationController : UINavigationController){
+    init(navigationController : UINavigationController, appDIContainer: AppDIContainer){
         self.navigationController = navigationController
+        self.appDIContainer = appDIContainer
     }
     
     
     func start(){
-        let view = GamesListViewController.create()
-        navigationController?.pushViewController(view, animated: false)
+        // Reference strong rota
+        let gamesAppSceneDIContainer = appDIContainer.makeGameAppSceneDIContainer()
+        let loginFowCoordinator = gamesAppSceneDIContainer.makeLoginFlowCoordinator(navigation: navigationController)
+        
+        loginFowCoordinator.start()
+        
     }
     
 }
