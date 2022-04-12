@@ -14,7 +14,7 @@ protocol NetworkConfigurate {
     var queryParameters: [String: String] { get }
 }
 
-struct NetworkConfig: NetworkConfigurate {
+public struct NetworkConfig: NetworkConfigurate {
     public let  baseURL: URL
     public let  headers: [String : String]
     public let queryParameters: [String : String]

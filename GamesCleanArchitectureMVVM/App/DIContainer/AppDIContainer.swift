@@ -17,7 +17,8 @@ final class AppDIContainer{
     
     lazy var dataTransferService: DataTransferServiceProtocol = {
         
-        let networkConfig =  NetworkConfig(baseURL: URL(string: appConfiguration.baseURL)!)
+        let networkConfig =  NetworkConfig( baseURL: URL(string: appConfiguration.baseUrlAuth)!,
+                                           headers: ["Content-Type": "application/json"] )
         
         let networkService = NetworkServices(networkConfig: networkConfig)
         
@@ -25,6 +26,19 @@ final class AppDIContainer{
         
         return dataTransferService
         
+    }()
+    
+    
+    
+    lazy var dataTransferServicesGames: DataTransferServiceProtocol = {
+        let networkingConfing = NetworkConfig(baseURL: URL(string: appConfiguration.baseURL)!,
+                                              headers: ["accept": "*/*"])
+        
+        let networkService = NetworkServices(networkConfig: networkingConfing)
+        
+        let dataTransferService =  DataTransferService(networkServices: networkService)
+        
+        return dataTransferService
     }()
     
     
@@ -40,4 +54,14 @@ final class AppDIContainer{
         
     }
     
+    
+    
+    
+    //Validar si le corrrespondera el servicio
+    func makeListGameSceneDIContainer() -> ListGameSceneDIContainer {
+        
+        let gameListSceneDIContainer = ListGameSceneDIContainer.Dependencies(apiRequest: dataTransferServicesGames)
+        
+        return ListGameSceneDIContainer(dependencies: gameListSceneDIContainer)
+    }
 }

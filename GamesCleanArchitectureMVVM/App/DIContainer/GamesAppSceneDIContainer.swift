@@ -29,25 +29,52 @@ import UIKit
         
        return LoginFlowCoordinator(gameAppDIContainer: self , navigation: navigation )
     }
+     
+     
+     
+     //MARK: Create ViewModels
+     func makeLoginViewModel(actions: LoginViewModelAction) -> LoginViewModelInput{
+         
+         return LoginViewModel(loginUseCase: makeLoginUseCase(), loginViewModelAction: actions)
+     }
+     
+     
+     
+     //MARK:  UseCases
+     func makeLoginUseCase()-> LoginUseCaseProtocol {
+         LoginUseCase(loginRepositorio: makeLoginRepository())
+     }
+     
+     
+     
+     //MARK: Repository
+     
+     func makeLoginRepository()-> LoginRepositoryProtocol {
+         LoginRepository(dataTransferService: dependencies.apiRequest)
+     }
+     
+     deinit {
+         print("Se librero la memoria")
+     }
     
 }
 
 
 
-extension GamesAppSceneDIContainer: FlowCoordinatorProtocol {
-    func makeViewModel() {
-        // 
+extension GamesAppSceneDIContainer: LoginFlowCoordinatorProtocol {
+    
+    func makeLoginViewController(action: LoginViewModelAction) -> LoginViewController {
+        let view = LoginViewController.create(viewModel: makeLoginViewModel(actions: action) )
+        return view
     }
     
-    func makeDetailsGameViewController() {
-        //
+    func makeRegisterViewController(action: LoginViewModelAction) {
+        print("register")
     }
-    
-    func makeSearchGameListViewController() {
-        //
-    }
-    
-
     
     
 }
+
+
+
+

@@ -12,11 +12,21 @@ import Foundation
 class AppConfiguration {
     
     lazy var baseURL: String = {
-        guard let baseUrl = Bundle.main.object(forInfoDictionaryKey: "baseURL") as? String else{
+        guard let baseUrl = Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String else{
             fatalError("💥💥💥 No se encontro la baseURL")
         }
         return baseUrl
     }()
+    
+    
+    
+    lazy var baseUrlAuth: String = {
+        guard let baseUrlAuth = Bundle.main.object(forInfoDictionaryKey: "BaseURLAuth") as? String else {
+            fatalError("💥💥💥  No se encontro la baseURLAuth")
+        }
+        return baseUrlAuth
+    }()
+    
     
     
 }

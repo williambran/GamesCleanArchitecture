@@ -12,7 +12,25 @@
 		<key>GamesCleanArchitectureMVVM.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>898C58422792689C006F30A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>898C585B279268A5006F30A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>898C5865279268A5006F30A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

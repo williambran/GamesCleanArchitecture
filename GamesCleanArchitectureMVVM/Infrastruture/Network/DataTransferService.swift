@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol DataTransferServiceProtocol {
+  protocol DataTransferServiceProtocol {
     
     typealias CompletionHandler<T> = (Result<T, DataTranferError>) -> Void
     
@@ -34,7 +34,7 @@ public final class DataTransferService {
 
 
 extension DataTransferService: DataTransferServiceProtocol{
-    func request<T: Decodable, E: ResponseRequestable>(endpoint: E,
+     func request<T: Decodable, E: ResponseRequestable>(endpoint: E,
                                                        completion: @escaping CompletionHandler<T>) -> NetworkCancellable? where E.Response == T {
         
         return self.networkServices.request(endPoint: endpoint) { result in
@@ -58,6 +58,7 @@ extension DataTransferService: DataTransferServiceProtocol{
            let result: T = try decoder.decode(data)
            return .success(result)
        } catch {
+           print("💥algun error decoder")
            errorLog.log(error: error)
            return .failure(.parsing(error))
            

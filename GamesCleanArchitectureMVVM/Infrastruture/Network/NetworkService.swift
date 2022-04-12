@@ -18,6 +18,8 @@ public protocol NetworkCancellable {
     func cancel()
 }
 
+extension URLSessionTask: NetworkCancellable {
+}
 
 public protocol NetworkManagerProtocol{
     
@@ -29,7 +31,7 @@ public protocol NetworkManagerProtocol{
 
  protocol NetworkLoggerProtocol {
     func log(request: URLRequest)
-    func log(responseData data: Data?, response: URLResponse?)
+    func log(responseData data: Data?, response: HTTPURLResponse?)
     func log(error: Error)
 }
 
@@ -53,11 +55,11 @@ class NetworkServices {
     func request(urlRequest: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
        
         networkManager.request(urlRequest: urlRequest) { data, response, requestError in
-            
+            let response = response as? HTTPURLResponse
             if let requestError = requestError {
                 var error: NetworkError
-                if let response = response as? HTTPURLResponse {
-                    error = .error(statusCode: response.statusCode, data: data)
+                if (response != nil) {
+                    error = .error(statusCode: response!.statusCode, data: data)
                 }else{
                    error = self.searchError(error: requestError)
                 }
@@ -65,6 +67,7 @@ class NetworkServices {
                 completion(.failure(error))
             } else {
                 self.networkLog.log(responseData: data, response: response)
+                print("Respuesta, \(response!.statusCode)")
                 completion(.success(data))
             }
             self.networkLog.log(request: urlRequest)
@@ -130,10 +133,10 @@ public class NetworkLog: NetworkLoggerProtocol {
         
     }
     
-    func log(responseData data: Data?, response: URLResponse?) {
+    func log(responseData data: Data?, response: HTTPURLResponse?) {
         
         if let responseData = data , let responseToDict = try? JSONSerialization.jsonObject(with: responseData, options: []) as? [String: AnyObject] {
-            print("RESPONSE 🥸: \(responseToDict) ")
+            print("RESPONSE 🥸: \(responseToDict) \n HTTPResponse: \(response!.statusCode)")
         }
       
     }

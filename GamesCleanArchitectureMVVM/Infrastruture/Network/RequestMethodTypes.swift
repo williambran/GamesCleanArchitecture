@@ -10,7 +10,7 @@ import Foundation
 
 
 
-enum RequestMethodTypes: String, CaseIterable {
+public enum RequestMethodTypes: String, CaseIterable {
     case GET
     case POST
     case PUT
@@ -23,7 +23,7 @@ enum RequestMethodTypes: String, CaseIterable {
 }
 
 
-enum BodyEncoding {
+public enum BodyEncoding {
     case jsonSerializationData
     case stringEncodingAscii
 }

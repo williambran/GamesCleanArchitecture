@@ -19,14 +19,20 @@ class GamesListViewController: UIViewController,Storyboarded {
         // Do any additional setup after loading the view.
     }
     
+    var viewModel: GamesListViewModelProtocol!
     
-      static func create() -> GamesListViewController  {
+    static func create(viewModel: GamesListViewModelProtocol) -> GamesListViewController  {
         let view = GamesListViewController.instantiateVC()
-        
+        view.viewModel = viewModel
         return view
         
     }
 
+    
+    deinit{
+        print("Se librero memoria2")
+        //action.evento()
+    }
     /*
     // MARK: - Navigation
 
