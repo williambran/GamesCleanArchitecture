@@ -33,7 +33,7 @@ public final class DataTransferErrorLog: DataTransferErrorLogger {
     init(){}
     
     public func log(error: Error){
-        print("------")
+        print("💥-------Error Transferservices")
         print("Error: \(error)")
     }
     

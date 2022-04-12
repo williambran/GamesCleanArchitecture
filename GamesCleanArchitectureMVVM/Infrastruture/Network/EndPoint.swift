@@ -79,7 +79,7 @@ extension Requestable {
         var headerConfig: [String:String] = networkConfig.headers
         
         self.headerParameters.forEach { headerConfig.updateValue($0.value, forKey: $0.key) }
-        let parameterBody = self.bodyParameters
+        let parameterBody = try self.bodyParametersEncodable?.toDictionary() ?? self.bodyParameters
         if !parameterBody.isEmpty {
             urlRequest.httpBody = encodeBody(bodyParameter: parameterBody, bodyEncoding: .jsonSerializationData)
         }
@@ -94,7 +94,7 @@ extension Requestable {
     //Get Url
     func url(networkConfig: NetworkConfig ) throws -> URL {
         let baseURL = networkConfig.baseURL.absoluteString.last != "/" ? networkConfig.baseURL.absoluteString + "/" : networkConfig.baseURL.absoluteString
-        let endPoint = isFullPath ? path : baseURL.appending(baseURL)
+        let endPoint = isFullPath ? path : baseURL.appending(path)
         
         //Here Add URLComponent
         guard var urlComponents = URLComponents(string: endPoint) else { throw RequestGenerationError.components }

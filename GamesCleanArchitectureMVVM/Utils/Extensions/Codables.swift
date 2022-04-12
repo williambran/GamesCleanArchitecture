@@ -26,5 +26,5 @@ import Foundation
 }
 
 
-extension URLSessionTask: NetworkCancellable { }
+
 
