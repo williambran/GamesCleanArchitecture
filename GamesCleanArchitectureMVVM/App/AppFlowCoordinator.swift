@@ -14,6 +14,21 @@ protocol Coordinator {
 
     func start()
 }
+/*
+extension Coordinator {
+    
+    /// Removing a coordinator inside a children. This call is important to prevent memory leak.
+    /// - Parameter coordinator: Coordinator that finished.
+    func childDidFinish(_ coordinator : Coordinator){
+        // Call this if a coordinator is done.
+        for (index, child) in childCoordinators.enumerated() {
+            if child === coordinator {
+                children.remove(at: index)
+                break
+            }
+        }
+    }
+}*/
 
 
 enum AppChildCoordinator {
@@ -26,7 +41,7 @@ class AppFlowCoordinator : Coordinator {
     
     var childCoordinators: [AppChildCoordinator:Coordinator]? = [AppChildCoordinator:Coordinator]()
     var navigationController: UINavigationController?
-     var gamesAppSceneDIContainer: GamesAppSceneDIContainer?
+    // var gamesAppSceneDIContainer: GamesAppSceneDIContainer?
     weak var appDIContainer: AppDIContainer?
     
     
@@ -38,13 +53,14 @@ class AppFlowCoordinator : Coordinator {
     
     func start(){
         /// Reference strong eliminada al eliminar coordinator
-         gamesAppSceneDIContainer = appDIContainer?.makeGameAppSceneDIContainer()
-        let loginFowCoordinator = gamesAppSceneDIContainer?.makeLoginFlowCoordinator(navigation: navigationController!)
+        let gamesAppSceneDIContainer = appDIContainer?.makeGameAppSceneDIContainer()
+        let loginFowCoordinator = gamesAppSceneDIContainer?.makeLoginFlowCoordinator(navigation:navigationController!)
         loginFowCoordinator?.patherCoordinator = self
-        loginFowCoordinator?.start()
         childCoordinators?[.login] = loginFowCoordinator
+        loginFowCoordinator?.start()
         
     }
+    
     
     func gameListFlowCoordinator() {
         let gameListSceneDIContainer =  appDIContainer?.makeListGameSceneDIContainer()
@@ -57,22 +73,16 @@ class AppFlowCoordinator : Coordinator {
 }
 
 extension AppFlowCoordinator: FlowCoordinatorDidFinish{
-    func coordinatorDidFinish() {
-        // finalizar coordinator
-        
+    func LoginFlowCoordinatorDidFinish() {
         childCoordinators?[.login] = nil
-
-        
-        //Inicializar coordinator a dashboard
-        
         gameListFlowCoordinator()
         
     }
     
-    
-    func coordinatorDidFinish2()  {
+    func GameListFlowCoordinatorDidFinish() {
         childCoordinators?[.listGames] = nil
+        start()
+        
     }
-    
-    
+
 }

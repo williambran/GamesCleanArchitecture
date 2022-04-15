@@ -18,6 +18,12 @@ struct Endpoints {
     }
     
     
+    static func register(registerRequestDTO: RegisterRequestDTO) -> EndPoint<RegisterResponseDTO> {
+        
+        return EndPoint(path: "api/v1/register", method: .POST,bodyParametersEncodable: registerRequestDTO)
+    }
+    
+    
     static func getAllGames() ->EndPoint<GamesListDTO> {
         
         return EndPoint(path: "api/games", method: .GET)

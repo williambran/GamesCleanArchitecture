@@ -10,14 +10,29 @@ import UIKit
 class GamesListViewController: UIViewController,Storyboarded {
     
     @IBOutlet private var searchBarContainer: UIView!
+    
+    @IBAction private func buttonSignOff(_ sender: Any){
+        //Regresar al login
+        self.viewModel.pru()
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+       // view.backgroundColor = .red
         
         print("Inicio bien")
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //self.viewModel.pru()
+    }
+    
+    
     
     var viewModel: GamesListViewModelProtocol!
     

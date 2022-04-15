@@ -9,24 +9,24 @@ import Foundation
 import UIKit
 
 
-protocol FlowCoordinatorDidFinish{
-    func coordinatorDidFinish()
-    func coordinatorDidFinish2()
+protocol FlowCoordinatorDidFinish: AnyObject{
+    func LoginFlowCoordinatorDidFinish()
+    func GameListFlowCoordinatorDidFinish()
 }
 
 protocol LoginFlowCoordinatorProtocol {
     func makeLoginViewController(action: LoginViewModelAction) -> LoginViewController
-    func makeRegisterViewController(action: LoginViewModelAction)
+    func makeRegisterViewController(action: RegisterViewModelAction) -> RegisterViewController
     
 }
 
 
 final class LoginFlowCoordinator: Coordinator {
-    var childCoordinators: [AppChildCoordinator : Coordinator]?
+    var childCoordinators: [AppChildCoordinator : Coordinator]? = [AppChildCoordinator : Coordinator]()
         
     var view: LoginViewController?
     var gameAppSceneDIContainer: LoginFlowCoordinatorProtocol
-    var patherCoordinator : FlowCoordinatorDidFinish?
+    weak var patherCoordinator : FlowCoordinatorDidFinish?
     weak var navigationController: UINavigationController?
     
     
@@ -39,32 +39,46 @@ final class LoginFlowCoordinator: Coordinator {
     
     func start() {
         //Comenzar a crear viewModel, user case viewModel delegandolos a GamesAppSceneDIContainer para inyeccion
-        let actionViewModel =  LoginViewModelAction(showDialogLogin: showDialogLogin)
+        let actionViewModel =  LoginViewModelAction(showDialogLogin: showDialogLogin, showRegister: showRegister, pruebaGoGameList: goGamesList)
         
         let view = gameAppSceneDIContainer.makeLoginViewController(action: actionViewModel)
         
+        navigationController?.topViewController?.removeFromParent()
         navigationController?.pushViewController(view, animated: false)
         
     }
     
+    func showLogin() {
+        navigationController?.popViewController(animated: true)
+    }
  
     
-    //get user and token
     func showDialogLogin(user: UserLogged)  {
         //Mostarr mensaje de logeado correctamente
         print("usuario \(user.user.nickname) logeado correctamente")
-        patherCoordinator?.coordinatorDidFinish()
+        patherCoordinator?.LoginFlowCoordinatorDidFinish()
         
         
     }
     
     
-    func makeRegister()  {
-        //Aquie hacer proceso de registro
+    func goGamesList() {
+        patherCoordinator?.LoginFlowCoordinatorDidFinish()
     }
+    
+    func showRegister(){
+        let actionViewModel = RegisterViewModelAction(showLogin: showLogin)
+        let view = gameAppSceneDIContainer.makeRegisterViewController(action: actionViewModel)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.pushViewController(view, animated: true)
+        print("inicia el flujo del register")
+    }
+    
+    
+
     
     deinit {
-        print(" 🌈 🌈prueba liberando memoria")
+        print(" 🌈 🌈 LoginFlowCoordinator deinit")
     }
 }
 

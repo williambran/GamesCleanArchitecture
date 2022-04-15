@@ -11,12 +11,13 @@ import Foundation
 
 
 struct GameListViewmodelAction {
-    let showDetailVideo: ()
+    let showDetailVideo:()->Void
 }
 
 
 protocol GamesListViewModelProtocol{
     func getAllGamesList()
+    func pru()
 }
 
 
@@ -30,6 +31,7 @@ class GamesListViewModel {
         self.gameListUseCase = gameListUseCase
     }
     
+    
 }
 extension GamesListViewModel: GamesListViewModelProtocol{
     func getAllGamesList() {
@@ -39,12 +41,16 @@ extension GamesListViewModel: GamesListViewModelProtocol{
             switch(result){
             case .success(let data):
                 print("usar el data para presentar el resultado en view \(data)")
-                self.gameListViewModelAction.showDetailVideo
+                self.gameListViewModelAction.showDetailVideo()
                 
             case .failure(let error):
                 print("error en traer las lista de jjuegos \(error) ")
             }
         }
+    }
+    
+    func pru(){
+        self.gameListViewModelAction.showDetailVideo()
     }
     
     

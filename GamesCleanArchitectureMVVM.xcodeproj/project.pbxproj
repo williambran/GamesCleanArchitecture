@@ -12,6 +12,12 @@
 		893409462804EFEE00E420F4 /* GameListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893409452804EFEE00E420F4 /* GameListRepository.swift */; };
 		893409482804F02600E420F4 /* GameListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893409472804F02600E420F4 /* GameListRepositoryProtocol.swift */; };
 		8934094A280513DF00E420F4 /* GamesListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89340949280513DF00E420F4 /* GamesListDTO.swift */; };
+		895DB92D2807633300A286D1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB92C2807633300A286D1 /* RegisterViewController.swift */; };
+		895DB92F2807634E00A286D1 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB92E2807634E00A286D1 /* RegisterViewModel.swift */; };
+		895DB931280785AC00A286D1 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB930280785AB00A286D1 /* RegisterUseCase.swift */; };
+		895DB933280786E400A286D1 /* RegisterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB932280786E400A286D1 /* RegisterRepositoryProtocol.swift */; };
+		895DB9352807890D00A286D1 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB9342807890D00A286D1 /* RegisterRepository.swift */; };
+		895DB9372807F14D00A286D1 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB9362807F14D00A286D1 /* RegisterRequest.swift */; };
 		8975FC8327A2F38800A2A6FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C58462792689C006F30A7 /* AppDelegate.swift */; };
 		8975FC8427A2F38800A2A6FF /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC9DEA27935BC6001C762A /* AppConfiguration.swift */; };
 		8975FC8527A2F38800A2A6FF /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C58982792D320006F30A7 /* AppFlowCoordinator.swift */; };
@@ -102,6 +108,12 @@
 		8949AD102796B75C00B469F0 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		8949AD132796B79C00B469F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8949AD162796C52200B469F0 /* LoginFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowCoordinator.swift; sourceTree = "<group>"; };
+		895DB92C2807633300A286D1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		895DB92E2807634E00A286D1 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		895DB930280785AB00A286D1 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		895DB932280786E400A286D1 /* RegisterRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryProtocol.swift; sourceTree = "<group>"; };
+		895DB9342807890D00A286D1 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
+		895DB9362807F14D00A286D1 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		897E3A7727A39C380080A594 /* GameListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListFlowCoordinator.swift; sourceTree = "<group>"; };
 		897E3A7A27A3A7E20080A594 /* ListGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGames.swift; sourceTree = "<group>"; };
 		898B0B3F2793ACF1000378D3 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -207,6 +219,40 @@
 				8949AD102796B75C00B469F0 /* LoginViewController.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		895DB929280761B800A286D1 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				895DB92B280761E100A286D1 /* ViewModel */,
+				895DB92A280761D900A286D1 /* View */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		895DB92A280761D900A286D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				895DB92C2807633300A286D1 /* RegisterViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		895DB92B280761E100A286D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				895DB92E2807634E00A286D1 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		895DB9382807F34100A286D1 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				895DB9362807F14D00A286D1 /* RegisterRequest.swift */,
+				89BABFAA279D748100B4738C /* LoginRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		897E3A7927A3A7AC0080A594 /* DataMappingListGames */ = {
@@ -351,6 +397,7 @@
 			children = (
 				898C58842792BE74006F30A7 /* Flows */,
 				8949AD0A2796B6A500B469F0 /* Login */,
+				895DB929280761B800A286D1 /* Register */,
 				898C58852792BE94006F30A7 /* GamesList */,
 				898C58862792BEA5006F30A7 /* GamesDetails */,
 			);
@@ -448,8 +495,8 @@
 		89A490E32798218600299F4C /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				895DB9382807F34100A286D1 /* Requests */,
 				89C309E927995AB20036391C /* Models */,
-				89BABFAA279D748100B4738C /* LoginRequest.swift */,
 				893409432804D9C400E420F4 /* GameList.swift */,
 			);
 			path = Entities;
@@ -460,6 +507,7 @@
 			children = (
 				89A490EE27982FC200299F4C /* LoginUseCase.swift */,
 				893409412804D57E00E420F4 /* GameListUseCase.swift */,
+				895DB930280785AB00A286D1 /* RegisterUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -477,6 +525,7 @@
 			children = (
 				89C309ED27995CF80036391C /* LoginRepositoryProtocol.swift */,
 				893409472804F02600E420F4 /* GameListRepositoryProtocol.swift */,
+				895DB932280786E400A286D1 /* RegisterRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -510,6 +559,7 @@
 			children = (
 				89C309F4279962EA0036391C /* LoginRepository.swift */,
 				893409452804EFEE00E420F4 /* GameListRepository.swift */,
+				895DB9342807890D00A286D1 /* RegisterRepository.swift */,
 				89BABFB0279D844E00B4738C /* Utils */,
 			);
 			path = Reositories;
@@ -687,6 +737,8 @@
 				8975FC8327A2F38800A2A6FF /* AppDelegate.swift in Sources */,
 				8975FC8427A2F38800A2A6FF /* AppConfiguration.swift in Sources */,
 				8975FC8527A2F38800A2A6FF /* AppFlowCoordinator.swift in Sources */,
+				895DB9372807F14D00A286D1 /* RegisterRequest.swift in Sources */,
+				895DB933280786E400A286D1 /* RegisterRepositoryProtocol.swift in Sources */,
 				893409462804EFEE00E420F4 /* GameListRepository.swift in Sources */,
 				8975FC8627A2F38800A2A6FF /* AppDIContainer.swift in Sources */,
 				8975FC8727A2F38800A2A6FF /* GamesAppSceneDIContainer.swift in Sources */,
@@ -698,6 +750,7 @@
 				8975FC8D27A2F38800A2A6FF /* GamesListViewController.swift in Sources */,
 				8975FC8F27A2F38800A2A6FF /* GameDetailsViewModel.swift in Sources */,
 				897E3A7827A39C380080A594 /* GameListFlowCoordinator.swift in Sources */,
+				895DB931280785AC00A286D1 /* RegisterUseCase.swift in Sources */,
 				8934094A280513DF00E420F4 /* GamesListDTO.swift in Sources */,
 				8975FC9027A2F38800A2A6FF /* GameDetailsViewController.swift in Sources */,
 				8975FC9227A2F38800A2A6FF /* User.swift in Sources */,
@@ -707,6 +760,7 @@
 				8975FC9627A2F38800A2A6FF /* LoginRepositoryProtocol.swift in Sources */,
 				8975FC9727A2F38800A2A6FF /* APIEndpoint.swift in Sources */,
 				893409442804D9C400E420F4 /* GameList.swift in Sources */,
+				895DB92D2807633300A286D1 /* RegisterViewController.swift in Sources */,
 				8975FC9827A2F38800A2A6FF /* LoginRequestDTO.swift in Sources */,
 				8975FC9927A2F38800A2A6FF /* LoginResponseDTO.swift in Sources */,
 				8975FC9A27A2F38800A2A6FF /* RegisterRequestDTO.swift in Sources */,
@@ -716,10 +770,12 @@
 				8975FC9F27A2F38800A2A6FF /* DataTransferService.swift in Sources */,
 				8975FCA027A2F38800A2A6FF /* NetworkService.swift in Sources */,
 				8975FCA127A2F38800A2A6FF /* NetworkConfig.swift in Sources */,
+				895DB92F2807634E00A286D1 /* RegisterViewModel.swift in Sources */,
 				89C4E3A028042F9F00351424 /* ListGameSceneDIContainer.swift in Sources */,
 				8975FCA227A2F38800A2A6FF /* JSONResponseDecoder.swift in Sources */,
 				8975FCA327A2F38800A2A6FF /* DataTranferErrorResolver.swift in Sources */,
 				893409422804D57E00E420F4 /* GameListUseCase.swift in Sources */,
+				895DB9352807890D00A286D1 /* RegisterRepository.swift in Sources */,
 				8975FCA427A2F38800A2A6FF /* RequestMethodTypes.swift in Sources */,
 				8975FCA527A2F38800A2A6FF /* enums.swift in Sources */,
 				897E3A7B27A3A7E20080A594 /* ListGames.swift in Sources */,

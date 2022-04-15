@@ -22,7 +22,7 @@ class GameListFlowCoordinator: Coordinator {
     var childCoordinators: [AppChildCoordinator : Coordinator]?
     var gameListSceneDIContainer: GameListFlowCoordinatorProtocol
     var navigationController: UINavigationController?
-    var patherCoordinator : FlowCoordinatorDidFinish?
+    weak var patherCoordinator : FlowCoordinatorDidFinish?
     
     init(gameAppDIContainer: GameListFlowCoordinatorProtocol, navigation: UINavigationController){
         
@@ -34,27 +34,26 @@ class GameListFlowCoordinator: Coordinator {
     
     
     func start() {
-        print("inicializo lista de games")
-       
-        let prueba =  GameListViewmodelAction(showDetailVideo: prueba())
+        let prueba =  GameListViewmodelAction(showDetailVideo: prueba)
         let view = gameListSceneDIContainer.makeGameListViewController(action: prueba)
-        
-        navigationController?.pushViewController(view, animated: false)
+        navigationController?.topViewController?.removeFromParent()
+        navigationController?.pushViewController(view, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
     
     
     func prueba(){
         //Mostarr mensaje de logeado correctamente
-        print("prueba liberacion de memoria")
-        patherCoordinator?.coordinatorDidFinish2()
+        print("Nose ejecuta hast que consultemos allGetGames")
+        patherCoordinator?.GameListFlowCoordinatorDidFinish()
         
     }
     
     
     
     deinit{
-        print("liberacion de coordinator")
+        print("liberacion de GameListFLowcoordinator")
     }
     
     

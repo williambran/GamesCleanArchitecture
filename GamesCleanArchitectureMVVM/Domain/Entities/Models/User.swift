@@ -11,7 +11,7 @@ import Foundation
 
 struct User: Identifiable{
     
-    let id: String
+    let id: String?
     let email: String
     let names: String
     let nickname: String
