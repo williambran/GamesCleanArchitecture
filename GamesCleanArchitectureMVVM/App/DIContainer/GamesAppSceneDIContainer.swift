@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-
+///***
+//  Maneja login y register **/
  final class GamesAppSceneDIContainer {
     
     struct Dependencies {
@@ -38,11 +39,19 @@ import UIKit
          return LoginViewModel(loginUseCase: makeLoginUseCase(), loginViewModelAction: actions)
      }
      
+     func makeRegisterViewModel(action: RegisterViewModelAction) -> RegisterViewModelInput {
+         return RegisterViewModel(useCase: makeRegisterUseCase(), registerViewMovelAction: action)
+     }
+     
      
      
      //MARK:  UseCases
      func makeLoginUseCase()-> LoginUseCaseProtocol {
          LoginUseCase(loginRepositorio: makeLoginRepository())
+     }
+     
+     func makeRegisterUseCase() -> RegisterUseCaseProtocol {
+         RegisterUseCase(repository: makeRegisterRepository())
      }
      
      
@@ -51,6 +60,11 @@ import UIKit
      
      func makeLoginRepository()-> LoginRepositoryProtocol {
          LoginRepository(dataTransferService: dependencies.apiRequest)
+     }
+     
+     
+     func makeRegisterRepository() -> RegisterRepositoryProtocol {
+         return RegisterRepository(transferServices: dependencies.apiRequest)
      }
      
      deinit {
@@ -62,14 +76,17 @@ import UIKit
 
 
 extension GamesAppSceneDIContainer: LoginFlowCoordinatorProtocol {
+    func makeRegisterViewController(action: RegisterViewModelAction) -> RegisterViewController {
+        
+        let view = RegisterViewController.create(viewModel: makeRegisterViewModel(action:action))
+        
+        return view
+    }
+    
     
     func makeLoginViewController(action: LoginViewModelAction) -> LoginViewController {
         let view = LoginViewController.create(viewModel: makeLoginViewModel(actions: action) )
         return view
-    }
-    
-    func makeRegisterViewController(action: LoginViewModelAction) {
-        print("register")
     }
     
     

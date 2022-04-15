@@ -15,3 +15,12 @@ struct RegisterResponseDTO: Decodable {
     let token: String
     
 }
+
+
+extension RegisterResponseDTO {
+    func toDomain() -> UserLogged{
+        return .init(token: token,
+                     user: user.toDomain())
+    }
+}
+
