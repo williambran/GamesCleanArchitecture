@@ -28,13 +28,27 @@ extension RegisterUseCase: RegisterUseCaseProtocol{
     func execute(registerRequest: RegisterRequest, completion: @escaping (Result<UserLogged, Error>) -> Void)  {
         // hacemos uso del repository
         
-        repository.makeRegisterRequest(registerRequest: registerRequest) { result in
+       /* repository.makeRegisterRequest(registerRequest: registerRequest) { result in
             switch(result){
             case .success(let data):
                 completion(.success(data))
                 break
             case .failure(let error):
                 completion(.failure(error))
+                break
+            }
+        }*/
+        
+        repository.makeRegisterRequestWithResult(registerRequest: registerRequest) { result in
+            switch(result){
+                
+            case .success(let data):
+                print("el dato \(data)")
+                break
+            case .failure(let error):
+                let errrorData = error
+                let er = errrorData.dataCodable as! ErrorRegisterResponseDTO
+                print("el error \(er.error)")
                 break
             }
         }

@@ -50,6 +50,7 @@ final class LoginFlowCoordinator: Coordinator {
     
     func showLogin() {
         navigationController?.popViewController(animated: true)
+        //navigationController?.dismiss(animated: true, completion: nil) //usar cuando el viewcontroller se presente de forma modal
     }
  
     
@@ -71,6 +72,11 @@ final class LoginFlowCoordinator: Coordinator {
         let view = gameAppSceneDIContainer.makeRegisterViewController(action: actionViewModel)
         navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.pushViewController(view, animated: true)
+        
+       /* //usar cuando el viewcontroller se presente de forma modal
+        view.modalPresentationStyle = .fullScreen    //   presentar el viewcontroller de forma modal
+        navigationController?.present(view, animated: true, completion: nil)
+        */
         print("inicia el flujo del register")
     }
     

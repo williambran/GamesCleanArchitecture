@@ -26,14 +26,16 @@ protocol Requestable{
 
 protocol ResponseRequestable:Requestable {
     associatedtype Response
+    associatedtype ResponseError
     var responseDecoder:ResponseDecoder { get }
 }
 
-public class EndPoint<R> : ResponseRequestable {
+public class EndPoint<R,E> : ResponseRequestable {
     
     var responseDecoder: ResponseDecoder
     
     typealias Response = R
+    typealias ResponseError = E
     
     var path: String
     var isFullPath: Bool

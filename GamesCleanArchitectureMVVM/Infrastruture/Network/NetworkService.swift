@@ -10,8 +10,10 @@ import Foundation
 protocol NetworkServicesProtocol{
     
     typealias CompletionHandler = (Result<Data?,NetworkError>) -> Void
+    typealias CompletionHandler2<Y> = (Result<Data?,NetworkError>) -> Void
     
     func request(endPoint: Requestable, completion: @escaping CompletionHandler) -> NetworkCancellable?
+    func requestWithCustomResult(endPoint: Requestable, completion: @escaping CompletionHandler) -> NetworkCancellable?
 }
 
 public protocol NetworkCancellable {
@@ -56,8 +58,8 @@ class NetworkServices {
        
         networkManager.request(urlRequest: urlRequest) { data, response, requestError in
             let response = response as? HTTPURLResponse
+            var error: NetworkError
             if let requestError = requestError {
-                var error: NetworkError
                 if (response != nil) {
                     error = .error(statusCode: response!.statusCode, data: data)
                 }else{
@@ -66,9 +68,41 @@ class NetworkServices {
                 self.networkLog.log(error: error)
                 completion(.failure(error))
             } else {
-                self.networkLog.log(responseData: data, response: response)
-                print("Respuesta, \(response!.statusCode)")
-                completion(.success(data))
+                if ((response!.success)){
+                    self.networkLog.log(responseData: data, response: response)
+                    completion(.success(data))
+                }else{
+                    error = .error(statusCode: response!.statusCode, data: data)
+                    completion(.failure(error))
+                } 
+                
+            }
+            self.networkLog.log(request: urlRequest)
+        }
+    }
+    
+    func request2<Y>(urlRequest: URLRequest, completion: @escaping CompletionHandler2<Y>) -> NetworkCancellable {
+       
+        networkManager.request(urlRequest: urlRequest) { data, response, requestError in
+            let response = response as? HTTPURLResponse
+            var error: NetworkError
+            if requestError != nil {
+                if (response != nil) {
+                    error = .error(statusCode: response!.statusCode, data: data)
+                }else{
+                 //  error = self.searchError(error: requestError)
+                }
+               // self.networkLog.log(error: error)
+                //completion(.failure(error))
+            } else {
+                if ((response!.success)){
+                    self.networkLog.log(responseData: data, response: response)
+                    completion(.success(data))
+                }else{
+                    error = .error(statusCode: response!.statusCode, data: data)
+                    completion(.failure(error))
+                }
+                
             }
             self.networkLog.log(request: urlRequest)
         }
@@ -88,8 +122,22 @@ class NetworkServices {
 }
 
 extension NetworkServices: NetworkServicesProtocol {
+
     
     func request(endPoint: Requestable, completion: @escaping CompletionHandler) -> NetworkCancellable? {
+        do{
+            let urlRequest = try endPoint.urlRequest(networkConfig: networkConfig)
+           return self.request(urlRequest: urlRequest, completion: completion)
+        }catch{
+            completion(.failure(.urlGeneration))
+            return nil
+        }
+        
+    }
+    
+    
+    
+    func requestWithCustomResult(endPoint: Requestable, completion: @escaping CompletionHandler) -> NetworkCancellable? {
         do{
             let urlRequest = try endPoint.urlRequest(networkConfig: networkConfig)
            return self.request(urlRequest: urlRequest, completion: completion)
@@ -142,8 +190,20 @@ public class NetworkLog: NetworkLoggerProtocol {
     }
     
     func log(error: Error) {
-        print("🤯 Error: \(error)")
+        print("🤯 ------Error Services ------- 🤯: \(error)")
     }
     
+    
+}
+
+
+
+
+extension HTTPURLResponse {
+    
+    var success: Bool {
+
+        return 200 ... 299 ~= statusCode
+    }
     
 }

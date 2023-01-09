@@ -50,7 +50,7 @@ extension LoginViewModel: LoginViewModelInput {
     func makeLogin(user: LoginRequest) {
         
         
-        /*
+        
         let loginRequest = LoginRequest(email: user.email, password: user.password)
         let response = loginUseCase.execute(loginRequest: loginRequest) { [weak self] in
             switch $0 {
@@ -60,7 +60,7 @@ extension LoginViewModel: LoginViewModelInput {
             case .failure(let error):
                 print("respueta con la vista\(error)")
             }
-        }*/
+        }
     }
     
     func maeRegister() {

@@ -27,7 +27,7 @@ class LoginViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-      //  viewModel.makeLogin(user: LoginRequest(email: "p@gmail.com", password: "12345678"))
+        viewModel.makeLogin(user: LoginRequest(email: "p@gmail.com", password: "12345678"))
 
     }
     

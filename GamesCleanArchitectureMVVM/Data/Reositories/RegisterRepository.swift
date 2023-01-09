@@ -23,7 +23,28 @@ class RegisterRepository {
 
 
 extension RegisterRepository: RegisterRepositoryProtocol {
-    func makeRegisterRequest(registerRequest: RegisterRequest, completion: @escaping (Result<UserLogged, Error>) -> Void)  {
+    func makeRegisterRequestWithResult(registerRequest: RegisterRequest, completion: @escaping (Result<UserLogged, Error>) -> Void) {
+        
+        let registerRequestDTO = RegisterRequestDTO(email: registerRequest.email, password: registerRequest.password, names: registerRequest.names)
+        let endpoint = Endpoints.register(registerRequestDTO: registerRequestDTO)
+        
+        dataTransferServices.requestWithCustomResult(endpoint: endpoint) { result in
+            switch(result){
+            case .success(let data):
+                
+                completion(.success(data.toDomain()))
+                break
+            case .failure(let error):
+               // let entityError = error.dataCodable! as! ErrorRegisterResponseDTO
+                error.dataCodable
+                completion(.failure(error))
+                break
+            }
+        }
+    }
+    
+    func makeRegisterRequest(registerRequest: RegisterRequest,
+                             completion: @escaping (Result<UserLogged, Error>) -> Void) {
         //usar servicio o base de datos
         let registerRequestDTO = RegisterRequestDTO(email: registerRequest.email, password: registerRequest.password, names: registerRequest.names)
         let endpoint = Endpoints.register(registerRequestDTO: registerRequestDTO)
@@ -35,8 +56,9 @@ extension RegisterRepository: RegisterRepositoryProtocol {
                 completion(.success(data.toDomain()))
                 break
             case .failure(let error):
-                print("error request en repositori💥 \(error)")
-                break
+                completion(.failure(error))
+                print("Leer tipo de error en Repository💥 \(error.localizedDescription)")
+                
             }
         }
          
@@ -44,3 +66,20 @@ extension RegisterRepository: RegisterRepositoryProtocol {
     
     
 }
+
+
+
+
+
+
+
+enum WTResultEntity<T:Codable, R:Codable>{
+    case success(response: T)
+   // case error(error: WTErrors)
+    case errorResult(entity: R)
+    
+    
+}
+
+
+
