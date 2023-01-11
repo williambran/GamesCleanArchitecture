@@ -18,6 +18,7 @@
 		895DB933280786E400A286D1 /* RegisterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB932280786E400A286D1 /* RegisterRepositoryProtocol.swift */; };
 		895DB9352807890D00A286D1 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB9342807890D00A286D1 /* RegisterRepository.swift */; };
 		895DB9372807F14D00A286D1 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB9362807F14D00A286D1 /* RegisterRequest.swift */; };
+		89730DEC280AADAB0011D080 /* ErrorRegisterResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89730DEB280AADAB0011D080 /* ErrorRegisterResponseDTO.swift */; };
 		8975FC8327A2F38800A2A6FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C58462792689C006F30A7 /* AppDelegate.swift */; };
 		8975FC8427A2F38800A2A6FF /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC9DEA27935BC6001C762A /* AppConfiguration.swift */; };
 		8975FC8527A2F38800A2A6FF /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C58982792D320006F30A7 /* AppFlowCoordinator.swift */; };
@@ -63,6 +64,10 @@
 		898C586D279268A5006F30A7 /* GamesCleanArchitectureMVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C586C279268A5006F30A7 /* GamesCleanArchitectureMVVMUITestsLaunchTests.swift */; };
 		89C4E3A028042F9F00351424 /* ListGameSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4E39F28042F9E00351424 /* ListGameSceneDIContainer.swift */; };
 		89C4E3A12804509100351424 /* GamesListViewController.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 898C58922792CD01006F30A7 /* GamesListViewController.storyboard */; };
+		89C711B228154C1A00512348 /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C711B128154C1A00512348 /* ValidationTextField.swift */; };
+		89C711B42815526400512348 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C711B32815526400512348 /* UITextField.swift */; };
+		89C711B6281552C300512348 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C711B5281552C300512348 /* UIView.swift */; };
+		89C711B8281560A000512348 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C711B7281560A000512348 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +119,7 @@
 		895DB932280786E400A286D1 /* RegisterRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryProtocol.swift; sourceTree = "<group>"; };
 		895DB9342807890D00A286D1 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		895DB9362807F14D00A286D1 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		89730DEB280AADAB0011D080 /* ErrorRegisterResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRegisterResponseDTO.swift; sourceTree = "<group>"; };
 		897E3A7727A39C380080A594 /* GameListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListFlowCoordinator.swift; sourceTree = "<group>"; };
 		897E3A7A27A3A7E20080A594 /* ListGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGames.swift; sourceTree = "<group>"; };
 		898B0B3F2793ACF1000378D3 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -158,6 +164,11 @@
 		89C309FF2799799D0036391C /* LoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDTO.swift; sourceTree = "<group>"; };
 		89C30A022799888D0036391C /* RegisterResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponseDTO.swift; sourceTree = "<group>"; };
 		89C4E39F28042F9E00351424 /* ListGameSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGameSceneDIContainer.swift; sourceTree = "<group>"; };
+		89C711AF2815476800512348 /* GamesCleanArchitectureMVVM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GamesCleanArchitectureMVVM.entitlements; sourceTree = "<group>"; };
+		89C711B128154C1A00512348 /* ValidationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
+		89C711B32815526400512348 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		89C711B5281552C300512348 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		89C711B7281560A000512348 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		89CC9DEA27935BC6001C762A /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		89CC9DED2793637B001C762A /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,6 +298,7 @@
 		898C58452792689C006F30A7 /* GamesCleanArchitectureMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				89C711AF2815476800512348 /* GamesCleanArchitectureMVVM.entitlements */,
 				898C58792792B128006F30A7 /* App */,
 				898C587B2792B177006F30A7 /* Presentation */,
 				898C587D2792B19B006F30A7 /* Domain */,
@@ -468,6 +480,7 @@
 		898C588D2792C6C0006F30A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				89C711B028154BDC00512348 /* Helpers */,
 				89A490EA279824B600299F4C /* New Group */,
 				898C588F2792C6FE006F30A7 /* Extensions */,
 				898C588E2792C6EE006F30A7 /* Protocols */,
@@ -488,6 +501,9 @@
 			children = (
 				89A1BEAE2795789600574A52 /* Codables.swift */,
 				89A1BEB22795803300574A52 /* Dictionaries.swift */,
+				89C711B32815526400512348 /* UITextField.swift */,
+				89C711B5281552C300512348 /* UIView.swift */,
+				89C711B7281560A000512348 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -583,8 +599,17 @@
 				89BABFA7279D69CA00B4738C /* RegisterRequestDTO.swift */,
 				89C30A022799888D0036391C /* RegisterResponseDTO.swift */,
 				89340949280513DF00E420F4 /* GamesListDTO.swift */,
+				89730DEB280AADAB0011D080 /* ErrorRegisterResponseDTO.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		89C711B028154BDC00512348 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				89C711B128154C1A00512348 /* ValidationTextField.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		89CC9DEC2793633B001C762A /* Network */ = {
@@ -730,9 +755,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C711B8281560A000512348 /* String.swift in Sources */,
 				89C4E3A12804509100351424 /* GamesListViewController.storyboard in Sources */,
 				897E3A7627A30D460080A594 /* LoginViewController.storyboard in Sources */,
 				897E3A7527A2FDBA0080A594 /* GamesCleanArchitectureMVVM.xcdatamodeld in Sources */,
+				89C711B42815526400512348 /* UITextField.swift in Sources */,
 				897E3A7427A2FDA10080A594 /* LoginRepository.swift in Sources */,
 				8975FC8327A2F38800A2A6FF /* AppDelegate.swift in Sources */,
 				8975FC8427A2F38800A2A6FF /* AppConfiguration.swift in Sources */,
@@ -742,6 +769,7 @@
 				893409462804EFEE00E420F4 /* GameListRepository.swift in Sources */,
 				8975FC8627A2F38800A2A6FF /* AppDIContainer.swift in Sources */,
 				8975FC8727A2F38800A2A6FF /* GamesAppSceneDIContainer.swift in Sources */,
+				89C711B6281552C300512348 /* UIView.swift in Sources */,
 				8975FC8827A2F38800A2A6FF /* LoginFlowCoordinator.swift in Sources */,
 				8975FC8927A2F38800A2A6FF /* LoginViewController.swift in Sources */,
 				8975FC8B27A2F38800A2A6FF /* LoginViewModel.swift in Sources */,
@@ -750,6 +778,7 @@
 				8975FC8D27A2F38800A2A6FF /* GamesListViewController.swift in Sources */,
 				8975FC8F27A2F38800A2A6FF /* GameDetailsViewModel.swift in Sources */,
 				897E3A7827A39C380080A594 /* GameListFlowCoordinator.swift in Sources */,
+				89730DEC280AADAB0011D080 /* ErrorRegisterResponseDTO.swift in Sources */,
 				895DB931280785AC00A286D1 /* RegisterUseCase.swift in Sources */,
 				8934094A280513DF00E420F4 /* GamesListDTO.swift in Sources */,
 				8975FC9027A2F38800A2A6FF /* GameDetailsViewController.swift in Sources */,
@@ -761,6 +790,7 @@
 				8975FC9727A2F38800A2A6FF /* APIEndpoint.swift in Sources */,
 				893409442804D9C400E420F4 /* GameList.swift in Sources */,
 				895DB92D2807633300A286D1 /* RegisterViewController.swift in Sources */,
+				89C711B228154C1A00512348 /* ValidationTextField.swift in Sources */,
 				8975FC9827A2F38800A2A6FF /* LoginRequestDTO.swift in Sources */,
 				8975FC9927A2F38800A2A6FF /* LoginResponseDTO.swift in Sources */,
 				8975FC9A27A2F38800A2A6FF /* RegisterRequestDTO.swift in Sources */,
@@ -955,6 +985,7 @@
 				BASE_URL = "https://gamestream-api.herokuapp.com";
 				BASE_URL_AUTH = "https://platzi-tweets-backend.herokuapp.com";
 				BASE_URL_VIDEO = "https://dl.dropboxusercontent.com";
+				CODE_SIGN_ENTITLEMENTS = GamesCleanArchitectureMVVM/GamesCleanArchitectureMVVM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6QNXMD5AL4;
@@ -989,6 +1020,7 @@
 				BASE_URL = "https://gamestream-api.herokuapp.com";
 				BASE_URL_AUTH = "https://platzi-tweets-backend.herokuapp.com";
 				BASE_URL_VIDEO = "https://dl.dropboxusercontent.com";
+				CODE_SIGN_ENTITLEMENTS = GamesCleanArchitectureMVVM/GamesCleanArchitectureMVVM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6QNXMD5AL4;

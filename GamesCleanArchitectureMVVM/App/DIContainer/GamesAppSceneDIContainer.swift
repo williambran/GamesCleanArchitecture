@@ -68,7 +68,7 @@ import UIKit
      }
      
      deinit {
-         print("Se librero la memoria")
+         print("Se librero la memoria del Scene GameApp🟢👀")
      }
     
 }
