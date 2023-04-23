@@ -12,6 +12,14 @@
 		893409462804EFEE00E420F4 /* GameListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893409452804EFEE00E420F4 /* GameListRepository.swift */; };
 		893409482804F02600E420F4 /* GameListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893409472804F02600E420F4 /* GameListRepositoryProtocol.swift */; };
 		8934094A280513DF00E420F4 /* GamesListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89340949280513DF00E420F4 /* GamesListDTO.swift */; };
+		89520893296E8729000714AC /* MenuSideCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89520892296E8729000714AC /* MenuSideCoordinator.swift */; };
+		89520896296E88A8000714AC /* SideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89520895296E88A8000714AC /* SideMenuDelegate.swift */; };
+		8952089A296E9FE2000714AC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89520899296E9FE2000714AC /* ContainerViewController.swift */; };
+		8952089C296EA0DD000714AC /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8952089B296EA0DD000714AC /* SideMenuItem.swift */; };
+		8952089E296EA130000714AC /* ContentViewControllerPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8952089D296EA130000714AC /* ContentViewControllerPresentation.swift */; };
+		895208A0296EA26C000714AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8952089F296EA26C000714AC /* HomeViewController.swift */; };
+		895208A2296EA29A000714AC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895208A1296EA29A000714AC /* SettingsViewController.swift */; };
+		895208A4296EAE7F000714AC /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895208A3296EAE7F000714AC /* SideMenuViewController.swift */; };
 		895DB92D2807633300A286D1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB92C2807633300A286D1 /* RegisterViewController.swift */; };
 		895DB92F2807634E00A286D1 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB92E2807634E00A286D1 /* RegisterViewModel.swift */; };
 		895DB931280785AC00A286D1 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DB930280785AB00A286D1 /* RegisterUseCase.swift */; };
@@ -113,6 +121,14 @@
 		8949AD102796B75C00B469F0 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		8949AD132796B79C00B469F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8949AD162796C52200B469F0 /* LoginFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowCoordinator.swift; sourceTree = "<group>"; };
+		89520892296E8729000714AC /* MenuSideCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSideCoordinator.swift; sourceTree = "<group>"; };
+		89520895296E88A8000714AC /* SideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuDelegate.swift; sourceTree = "<group>"; };
+		89520899296E9FE2000714AC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		8952089B296EA0DD000714AC /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
+		8952089D296EA130000714AC /* ContentViewControllerPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewControllerPresentation.swift; sourceTree = "<group>"; };
+		8952089F296EA26C000714AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		895208A1296EA29A000714AC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		895208A3296EAE7F000714AC /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		895DB92C2807633300A286D1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		895DB92E2807634E00A286D1 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		895DB930280785AB00A286D1 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
@@ -230,6 +246,34 @@
 				8949AD102796B75C00B469F0 /* LoginViewController.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		89520894296E886C000714AC /* MenuSide */ = {
+			isa = PBXGroup;
+			children = (
+				89520898296E8C48000714AC /* MenuSideController */,
+				89520897296E8C21000714AC /* Container */,
+				89520895296E88A8000714AC /* SideMenuDelegate.swift */,
+			);
+			path = MenuSide;
+			sourceTree = "<group>";
+		};
+		89520897296E8C21000714AC /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				89520899296E9FE2000714AC /* ContainerViewController.swift */,
+				8952089D296EA130000714AC /* ContentViewControllerPresentation.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		89520898296E8C48000714AC /* MenuSideController */ = {
+			isa = PBXGroup;
+			children = (
+				8952089B296EA0DD000714AC /* SideMenuItem.swift */,
+				895208A3296EAE7F000714AC /* SideMenuViewController.swift */,
+			);
+			path = MenuSideController;
 			sourceTree = "<group>";
 		};
 		895DB929280761B800A286D1 /* Register */ = {
@@ -356,6 +400,8 @@
 		898C587B2792B177006F30A7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				89520894296E886C000714AC /* MenuSide */,
+				898C58842792BE74006F30A7 /* Flows */,
 				898C58832792BE21006F30A7 /* GamesScene */,
 			);
 			path = Presentation;
@@ -407,11 +453,12 @@
 		898C58832792BE21006F30A7 /* GamesScene */ = {
 			isa = PBXGroup;
 			children = (
-				898C58842792BE74006F30A7 /* Flows */,
 				8949AD0A2796B6A500B469F0 /* Login */,
 				895DB929280761B800A286D1 /* Register */,
 				898C58852792BE94006F30A7 /* GamesList */,
 				898C58862792BEA5006F30A7 /* GamesDetails */,
+				8952089F296EA26C000714AC /* HomeViewController.swift */,
+				895208A1296EA29A000714AC /* SettingsViewController.swift */,
 			);
 			path = GamesScene;
 			sourceTree = "<group>";
@@ -419,6 +466,7 @@
 		898C58842792BE74006F30A7 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				89520892296E8729000714AC /* MenuSideCoordinator.swift */,
 				8949AD162796C52200B469F0 /* LoginFlowCoordinator.swift */,
 				897E3A7727A39C380080A594 /* GameListFlowCoordinator.swift */,
 			);
@@ -759,8 +807,10 @@
 				89C4E3A12804509100351424 /* GamesListViewController.storyboard in Sources */,
 				897E3A7627A30D460080A594 /* LoginViewController.storyboard in Sources */,
 				897E3A7527A2FDBA0080A594 /* GamesCleanArchitectureMVVM.xcdatamodeld in Sources */,
+				895208A4296EAE7F000714AC /* SideMenuViewController.swift in Sources */,
 				89C711B42815526400512348 /* UITextField.swift in Sources */,
 				897E3A7427A2FDA10080A594 /* LoginRepository.swift in Sources */,
+				8952089E296EA130000714AC /* ContentViewControllerPresentation.swift in Sources */,
 				8975FC8327A2F38800A2A6FF /* AppDelegate.swift in Sources */,
 				8975FC8427A2F38800A2A6FF /* AppConfiguration.swift in Sources */,
 				8975FC8527A2F38800A2A6FF /* AppFlowCoordinator.swift in Sources */,
@@ -777,6 +827,7 @@
 				893409482804F02600E420F4 /* GameListRepositoryProtocol.swift in Sources */,
 				8975FC8D27A2F38800A2A6FF /* GamesListViewController.swift in Sources */,
 				8975FC8F27A2F38800A2A6FF /* GameDetailsViewModel.swift in Sources */,
+				895208A2296EA29A000714AC /* SettingsViewController.swift in Sources */,
 				897E3A7827A39C380080A594 /* GameListFlowCoordinator.swift in Sources */,
 				89730DEC280AADAB0011D080 /* ErrorRegisterResponseDTO.swift in Sources */,
 				895DB931280785AC00A286D1 /* RegisterUseCase.swift in Sources */,
@@ -792,7 +843,10 @@
 				895DB92D2807633300A286D1 /* RegisterViewController.swift in Sources */,
 				89C711B228154C1A00512348 /* ValidationTextField.swift in Sources */,
 				8975FC9827A2F38800A2A6FF /* LoginRequestDTO.swift in Sources */,
+				89520893296E8729000714AC /* MenuSideCoordinator.swift in Sources */,
+				89520896296E88A8000714AC /* SideMenuDelegate.swift in Sources */,
 				8975FC9927A2F38800A2A6FF /* LoginResponseDTO.swift in Sources */,
+				8952089A296E9FE2000714AC /* ContainerViewController.swift in Sources */,
 				8975FC9A27A2F38800A2A6FF /* RegisterRequestDTO.swift in Sources */,
 				8975FC9B27A2F38800A2A6FF /* RegisterResponseDTO.swift in Sources */,
 				8975FC9D27A2F38800A2A6FF /* RepositoryTask.swift in Sources */,
@@ -810,8 +864,10 @@
 				8975FCA527A2F38800A2A6FF /* enums.swift in Sources */,
 				897E3A7B27A3A7E20080A594 /* ListGames.swift in Sources */,
 				8975FCA627A2F38800A2A6FF /* Cancellable.swift in Sources */,
+				895208A0296EA26C000714AC /* HomeViewController.swift in Sources */,
 				8975FCA727A2F38800A2A6FF /* Codables.swift in Sources */,
 				8975FCA827A2F38800A2A6FF /* Dictionaries.swift in Sources */,
+				8952089C296EA0DD000714AC /* SideMenuItem.swift in Sources */,
 				8975FCA927A2F38800A2A6FF /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,9 +1042,10 @@
 				BASE_URL_AUTH = "https://platzi-tweets-backend.herokuapp.com";
 				BASE_URL_VIDEO = "https://dl.dropboxusercontent.com";
 				CODE_SIGN_ENTITLEMENTS = GamesCleanArchitectureMVVM/GamesCleanArchitectureMVVM.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6QNXMD5AL4;
+				DEVELOPMENT_TEAM = 8JY9X2L3H6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GamesCleanArchitectureMVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1003,8 +1060,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.org.GamesCleanArchitectureMVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frd.AppDonde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "App Donde";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1021,9 +1079,10 @@
 				BASE_URL_AUTH = "https://platzi-tweets-backend.herokuapp.com";
 				BASE_URL_VIDEO = "https://dl.dropboxusercontent.com";
 				CODE_SIGN_ENTITLEMENTS = GamesCleanArchitectureMVVM/GamesCleanArchitectureMVVM.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6QNXMD5AL4;
+				DEVELOPMENT_TEAM = 8JY9X2L3H6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GamesCleanArchitectureMVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1038,8 +1097,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.org.GamesCleanArchitectureMVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frd.AppDonde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "App Donde";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
