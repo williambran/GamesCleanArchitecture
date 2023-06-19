@@ -8,10 +8,9 @@ version: 2.1
 jobs:
   build:
     macos:
-      xcode: "12.5.0"
+      xcode: "14.2"
     steps:
       - checkout
       - run:
           name: Build
           command: xcodebuild clean build -scheme GamesCleanArchitectureMVVM
-          
