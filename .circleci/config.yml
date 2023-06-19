@@ -4,7 +4,6 @@
 # https://circleci.com/docs/testing-ios/
  # Define a job to be invoked later in a workflow.
  # See: https://circleci.com/docs/configuration-reference/#jobs
-
 version: 2.1
 jobs:
   build:
