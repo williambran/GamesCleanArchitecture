@@ -8,7 +8,7 @@
 
 version: 2.1
 jobs:
-  build-and-test:
+  build:
     macos:
       xcode: "14.2"
     environment:
