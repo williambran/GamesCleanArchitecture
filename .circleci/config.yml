@@ -5,21 +5,23 @@
  # Define a job to be invoked later in a workflow.
  # See: https://circleci.com/docs/configuration-reference/#jobs
 
-
 version: 2.1
 jobs:
-  build:
+  build-and-test:
     macos:
-      xcode: "14.2"
+      xcode: 14.2.0
     environment:
-       FL_OUTPUT_DIR: output
-       FASTLANE_LANE: test
-       ITMSTRANSPORTER_FORCE_ITMS_PACKAGE_UPLOAD: 0 
-
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: test
+      ITMSTRANSPORTER_FORCE_ITMS_PACKAGE_UPLOAD: 0
     steps:
       - checkout
       - run: bundle install
       - run: bundle exec pod install
       - run:
-          name: Fastlane
-          command: xcodebuild clean test -workspace GamesCleanArchitectureMVVM.xcworkspace -scheme GamesCleanArchitectureMVVM -destination "platform=iOS Simulator,name=iPhone 12 Pro Max" -allowProvisioningUpdates
+           name: Fastlane
+           command: bundle exec fastlane $FASTLANE_LANE
+      - store_artifacts:
+           path: output
+      - store_test_results:
+           path: output/scan
