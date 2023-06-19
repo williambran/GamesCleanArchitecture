@@ -5,6 +5,7 @@
  # Define a job to be invoked later in a workflow.
  # See: https://circleci.com/docs/configuration-reference/#jobs
 
+
 version: 2.1
 jobs:
   build:
@@ -13,5 +14,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: run tests
-          command: xcodebuild test -scheme GamesCleanArchitectureMVVM
+          name: Install dependencies
+          command: |
+            gem install bundler
+            bundle install
+            bundle exec pod install
+      - run:
+          name: Build and run tests
+          command: xcodebuild clean test -workspace GamesCleanArchitectureMVVM.xcworkspace -scheme GamesCleanArchitectureMVVM -destination "platform=iOS Simulator,name=iPhone 12 Pro Max"
