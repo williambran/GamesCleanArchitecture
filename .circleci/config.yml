@@ -8,12 +8,14 @@
 
 version: 2.1
 jobs:
-  build:
+  build-and-test:
     macos:
       xcode: "14.2"
     environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: test
+       FL_OUTPUT_DIR: output
+       FASTLANE_LANE: test
+       ITMSTRANSPORTER_FORCE_ITMS_PACKAGE_UPLOAD: 0 
+
     steps:
       - checkout
       - run: bundle install
