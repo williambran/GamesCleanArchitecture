@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Games List View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="GamesListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="GamesListViewController" customModule="GamesCleanArchitectureMVVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfN-rr-5RS">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0v-Ms-9pm" userLabel="ViewSearch">
+                                        <rect key="frame" x="0.0" y="52" width="390" height="58"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="gcd-rP-qg2"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJN-Pq-Uwu">
+                                        <rect key="frame" x="160" y="659" width="70" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonSignOff:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RD7-vX-fLL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstItem="b0v-Ms-9pm" firstAttribute="leading" secondItem="CfN-rr-5RS" secondAttribute="leading" id="0oy-LS-NUw"/>
+                                    <constraint firstAttribute="trailing" secondItem="SJN-Pq-Uwu" secondAttribute="trailing" constant="160" id="DIA-Bo-sce"/>
+                                    <constraint firstItem="SJN-Pq-Uwu" firstAttribute="leading" secondItem="CfN-rr-5RS" secondAttribute="leading" constant="160" id="DRn-R2-r5y"/>
+                                    <constraint firstAttribute="bottom" secondItem="SJN-Pq-Uwu" secondAttribute="bottom" constant="120" id="GyS-GN-4Nn"/>
+                                    <constraint firstAttribute="trailing" secondItem="b0v-Ms-9pm" secondAttribute="trailing" id="QVF-9g-vlB"/>
+                                    <constraint firstItem="b0v-Ms-9pm" firstAttribute="top" secondItem="CfN-rr-5RS" secondAttribute="top" constant="52" id="eUk-3o-M6R"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CfN-rr-5RS" secondAttribute="trailing" id="7Vq-cZ-7vZ"/>
+                            <constraint firstItem="CfN-rr-5RS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Aiq-oP-8Fk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CfN-rr-5RS" secondAttribute="bottom" id="KhN-mv-yR9"/>
+                            <constraint firstItem="CfN-rr-5RS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LAg-Rc-Bwr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBarContainer" destination="b0v-Ms-9pm" id="zEs-yj-pNh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="-36.255924170616112"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
