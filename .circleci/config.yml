@@ -12,7 +12,6 @@ jobs:
       xcode: "14.2"
     steps:
       - checkout
-      - run: bundle install
       - run:
           name: run tests
           command: xcodebuild test -scheme GamesCleanArchitectureMVVM
