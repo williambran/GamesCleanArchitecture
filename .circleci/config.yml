@@ -22,4 +22,4 @@ jobs:
       - run: bundle exec pod install
       - run:
           name: Fastlane
-          command: xcodebuild clean test -scheme GamesCleanArchitectureMVVM -destination "platform=iOS Simulator,name=iPhone 12 Pro Max" -allowProvisioningUpdates
+          command: xcodebuild clean test -workspace GamesCleanArchitectureMVVM.xcworkspace -scheme GamesCleanArchitectureMVVM -destination "platform=iOS Simulator,name=iPhone 12 Pro Max" -allowProvisioningUpdates
