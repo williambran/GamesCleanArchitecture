@@ -12,6 +12,7 @@ jobs:
       xcode: "14.2"
     steps:
       - checkout
+      - run: bundle install
       - run:
           name: run tests
-          command: xcodebuild test -scheme GamesCleanArchitectureMVVM -destination "platform=iOS Simulator,name=iPhone 12 Pro Max"
+          command: xcodebuild test -scheme GamesCleanArchitectureMVVM
