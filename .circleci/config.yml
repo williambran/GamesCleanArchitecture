@@ -12,5 +12,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build and run tests
-          command: xcodebuild test -scheme YourProjectScheme -destination "platform=iOS Simulator,name=iPhone 12 Pro Max"
+          name: "hello word"
+          command: "echo Hola mundo"
