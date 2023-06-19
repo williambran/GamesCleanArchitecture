@@ -12,5 +12,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "hello word"
-          command: "echo Hola mundo"
+          name: Build
+          command: xcodebuild clean build -scheme GamesCleanArchitecture
