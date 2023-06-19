@@ -985,7 +985,7 @@
 				BASE_URL = "https://gamestream-api.herokuapp.com";
 				BASE_URL_AUTH = "https://platzi-tweets-backend.herokuapp.com";
 				BASE_URL_VIDEO = "https://dl.dropboxusercontent.com";
-				CODE_SIGN_ENTITLEMENTS = GamesCleanArchitectureMVVM/GamesCleanArchitectureMVVM.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6QNXMD5AL4;
@@ -1020,7 +1020,7 @@
 				BASE_URL = "https://gamestream-api.herokuapp.com";
 				BASE_URL_AUTH = "https://platzi-tweets-backend.herokuapp.com";
 				BASE_URL_VIDEO = "https://dl.dropboxusercontent.com";
-				CODE_SIGN_ENTITLEMENTS = GamesCleanArchitectureMVVM/GamesCleanArchitectureMVVM.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6QNXMD5AL4;
