@@ -16,8 +16,8 @@ jobs:
           command: |
             gem install bundler
             bundle install
-            bundle exec pod install
+            
       - run:
           name: Build and run tests
-          command: xcodebuild clean test -workspace GamesCleanArchitectureMVVM.xcworkspace -scheme GamesCleanArchitectureMVVM -destination "platform=iOS Simulator,name=iPhone 14 Pro" -allowProvisioningUpdates
+          command: xcodebuild clean test -scheme GamesCleanArchitectureMVVM -destination "platform=iOS Simulator,name=iPhone 14 Pro" -allowProvisioningUpdates
 
