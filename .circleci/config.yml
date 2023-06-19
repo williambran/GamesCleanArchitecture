@@ -13,4 +13,5 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: xcodebuild clean build -scheme GamesCleanArchitecture
+          command: xcodebuild clean build -scheme GamesCleanArchitectureMVVM
+          
